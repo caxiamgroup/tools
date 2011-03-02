@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- yet another config -->
+<generator>
+	<bean fileNameAppend="" fileType="cfc" templateType="cfm" />
+	<dao fileNameAppend="DAO" filetype="cfc" templateType="cfm">
+		<include file="read.cfm" />
+		<include file="insert.cfm" />
+		<include file="update.cfm" />
+		<include file="delete.cfm" />
+	</dao>
+	<service filetype="cfc" templateType="cfm">
+		<include file="get.cfm" />
+		<include file="save.cfm" />
+		<include file="delete.cfm" />
+		<include file="create.cfm" />
+	</service>
+</generator>

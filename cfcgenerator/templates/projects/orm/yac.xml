@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- yet another config -->
+<generator>
+	<_bean fileNamePrepend="_" fileNameAppend="" fileType="cfc" templateType="cfm">
+	</_bean>
+	<bean fileNameAppend="" fileType="cfc" templateType="cfm">
+	</bean>
+	<dao fileNameAppend="DAO" filetype="cfc" templateType="cfm">
+		<include file="executeReadHQL.cfm" />
+	</dao>
+	<service fileNameAppend="Service" filetype="cfc" templateType="cfm">
+		<include file="get.cfm" />
+		<include file="delete.cfm" />
+		<include file="save.cfm" />
+	</service>
+</generator>
