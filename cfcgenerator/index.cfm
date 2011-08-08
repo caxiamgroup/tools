@@ -31,7 +31,7 @@
 	<cfset form.dataSource = dsns[1]/>
 </cfif>
 
-<cfparam name="url.template" default="ORM"/>
+<cfparam name="url.template" default="query"/>
 <cfparam name="url.dataSource" default=""/>
 
 <cfparam name="form.template" default="#url.template#"/>

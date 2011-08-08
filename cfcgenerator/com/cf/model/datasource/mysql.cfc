@@ -424,7 +424,7 @@
 							cfSqlType="#translateCfSqlType(variables.tableMetadata.type_name)#"
 							required="#yesNoFormat(variables.tableMetadata.nullable-1)#"
 							length="#variables.tableMetadata.length#"
-							scale="#variables.tableMetadata.scale#"
+							scale="<cfif variables.tableMetadata.type_name EQ 'decimal'>#variables.tableMetadata.scale#</cfif>"
 							primaryKey="#yesNoFormat(listFind(variables.primaryKeyList,variables.tableMetadata.column_name))#"
 							identity="#variables.tableMetadata.identity#" />
 				</cfloop>
