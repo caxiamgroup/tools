@@ -31,6 +31,18 @@
 	<cfset form.dataSource = dsns[1]/>
 </cfif>
 
+<cfif ArrayLen(dsns)>
+	<!---/*IF RAILO*/--->
+	<cfif Not IsSimpleValue(dsns[1])>
+		<cfset newDSNs = []/>
+		<cfloop array="#dsns#" index="dsn">
+			<cfset ArrayAppend(newDSNs, dsn.getDSNName()) />
+		</cfloop>
+		<cfset dsns = newDSNs/>
+		<cfset ArraySort(dsns, "textnocase")/>
+	</cfif>
+</cfif>
+
 <cfparam name="url.template" default="query"/>
 <cfparam name="url.dataSource" default=""/>
 

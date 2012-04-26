@@ -21,7 +21,13 @@
 		{
 			arguments.value = ReReplace(arguments.value, "^" & variables.stripPrefix, "");
 		}
+		arguments.value = lowerCase(arguments.value);
+
 		return super.formatName(arguments.value);
+	}
+	function lowerCase(value)
+	{
+		return LCase(Left(arguments.value, 1)) & Right(arguments.value, Len(arguments.value)-1);
 	}
 
 </cfscript></cfcomponent>

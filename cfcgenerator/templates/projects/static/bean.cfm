@@ -1,0 +1,1 @@
+<cfinclude template="/templates/projects/paginated_query/bean.cfm"/>

@@ -18,8 +18,9 @@
 		<cfargument name="value" required="yes"/>
 		<cfset var results = ""/>
 		<cfset var word = ""/>
+
 		<cfloop array="#ListToArray(arguments.value, "_")#" index="word">
-			<cfset results &= request.templateUtils.capFirst(word)/>
+			<cfset results = ListAppend(results, request.templateUtils.capFirst(word), '_')/>
 		</cfloop>
 		<cfreturn results/>
 	</cffunction>
@@ -68,4 +69,40 @@
 		<cfreturn local.columns/>
 	</cffunction>
 
+<cfscript>
+
+	public function pluralize(required name)
+	{
+		local.vowels = 'a,e,i,o,u';
+		if( Right(arguments.name, 1) == 'y' && !ListFind( local.vowels, Mid(arguments.name, (Len(arguments.name) - 1), 1)) )
+		{
+			arguments.name = Left(arguments.name, Len(arguments.name)-1) & 'ie';
+		}
+		arguments.name &= 's';
+		return arguments.name;
+	}
+
+	public function formatLabel(required string)
+	{
+		return capFirst(arguments.string.replaceAll("([A-Z])", " $1").trim());
+	}
+
+	public function getPrimaryKey( required dbtable )
+	{
+
+		for(column in arguments.dbtable.xmlChildren)
+		{
+			/* railo compatability */
+			if(IsSimpleValue(column))
+			{
+				column = arguments.dbtable.xmlChildren[column];
+			}
+
+			if(column.xmlAttributes.primaryKey eq 'Yes')
+			{
+				return column.xmlAttributes.name;
+			}
+		}
+	}
+</cfscript>
 </cfcomponent>

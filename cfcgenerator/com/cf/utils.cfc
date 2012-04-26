@@ -8,7 +8,7 @@
 		<cfargument name="value" required="yes"/>
 		<cfreturn UCase(Left(arguments.value, 1)) & Right(arguments.value, Len(arguments.value) - 1)/>
 	</cffunction>
-	
+
 	<cffunction name="camelCase" output="false">
 		<cfargument name="value" required="yes"/>
 		<cfset var results = ""/>
@@ -18,7 +18,7 @@
 		</cfloop>
 		<cfreturn results/>
 	</cffunction>
-	
+
 	<cffunction name="formatName" output="false">
 		<cfargument name="value" required="yes"/>
 		<cfset var results = ""/>
@@ -32,5 +32,4 @@
 		</cfloop>
 		<cfreturn results/>
 	</cffunction>
-
 </cfcomponent>

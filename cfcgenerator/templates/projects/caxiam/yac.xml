@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- yet another config -->
+<generator>
+	<bean fileNameAppend="" fileType="cfc" templateType="cfm">
+		<include file="getset.cfm"/>
+	</bean>
+	<dao fileNameAppend="DAO" filetype="cfc" templateType="cfm">
+		<include file="create.cfm" />
+		<include file="read.cfm" />
+		<include file="update.cfm" />
+		<include file="getByAttributesQuery.cfm" />
+	</dao>
+	<service filetype="cfc" templateType="cfm">
+		<include file="createBean.cfm" />
+		<include file="getBean.cfm" />
+		<include file="getBeans.cfm" />
+		<include file="saveBean.cfm" />
+		<include file="deleteBean.cfm" />
+	</service>
+	<coldspring filetype="xml" templateType="cfm" />
+</generator>
